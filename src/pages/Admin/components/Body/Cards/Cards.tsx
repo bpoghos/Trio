@@ -14,7 +14,7 @@ const Cards = () => {
 
     const filteredData = data.filter(concert => {
         const concertDate = concert.date instanceof Date
-            ? concert.date.toISOString().split('T')[0]  // Convert to YYYY-MM-DD format
+            ? concert.date.toISOString().split('T')[0]  
             : concert.date.toDate().toISOString().split('T')[0]; // Convert Firestore Timestamp
 
         return (
