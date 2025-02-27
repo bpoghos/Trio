@@ -1,0 +1,21 @@
+/* Skeleton Loader CSS */
+.skeleton-loader {
+    background-color: #ddd;
+    width: 150px;
+    height: 100px;
+    border-radius: 4px;
+    animation: loading 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes loading {
+    0% {
+      background-color: #a61f1f;
+    }
+    50% {
+      background-color: #ddd;
+    }
+    100% {
+      background-color: #a61f1f;
+    }
+  }
+  

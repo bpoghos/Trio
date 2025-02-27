@@ -1,0 +1,549 @@
+@import "../../../../../../styles/variables/colors.module";
+@import "../../../../../../styles/variables/fontFamily.module";
+
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 172px;
+    background: #FFFCF8; // Light background
+    border: 2px solid $gold-color; // Gold border
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+
+
+}
+
+// Common styles for all corner cutouts
+.card::before,
+.card::after,
+.card .corner::before,
+.card .corner::after {
+    content: "";
+    position: absolute;
+    width: 102px;
+    height: 72px;
+    background: #FFFCF8;
+    border: 2px solid $gold-color; // Gold border
+    border-radius: 50%;
+}
+
+// Top-left cutout
+.card::before {
+    top: -38.2px;
+    left: -53px;
+    clip-path: inset(50% 0 0 50%);
+}
+
+// Top-right cutout
+.card::after {
+    top: -38.2px;
+    right: -53px;
+    clip-path: inset(50% 50% 0 0);
+}
+
+// Bottom-left cutout
+.card .corner::before {
+    bottom: -38.2px;
+    left: -53px;
+    clip-path: inset(0 0 50% 50%);
+}
+
+// Bottom-right cutout
+.card .corner::after {
+    bottom: -38.2px;
+    right: -53px;
+    clip-path: inset(0 50% 50% 0);
+}
+
+.dateContainer {
+    width: 95px;
+    height: 110px;
+    margin: 31px 32px 31px 52px;
+    text-align: center;
+
+    p {
+        margin: 0;
+    }
+
+    .day {
+        font-family: $decorativeFont;
+        font-size: 32px;
+        line-height: 130%;
+        font-weight: bold;
+    }
+
+    .month {
+        font-family: $decorativeFont;
+        font-size: 32px;
+        line-height: 130%;
+        font-weight: bold;
+    }
+
+    .year {
+        line-height: 140%;
+        letter-spacing: 0.02em;
+    }
+}
+
+.contentContainer {
+    width: 642px;
+    height: 100%;
+    padding: 16px 32px;
+    background-image: repeating-linear-gradient(180deg, #f3da8c, #f3da8c 16px, transparent 16px, transparent 32px), repeating-linear-gradient(180deg, #f3da8c, #f3da8c 16px, transparent 16px, transparent 32px);
+    background-position: right top, left top;
+    background-repeat: repeat-y, repeat-y;
+    background-size: 2px 100%, 2px 100%;
+    display: flex;
+    align-items: center;
+
+
+    .imageContainer {
+        min-width: 210px;
+        width: 210px;
+        height: 100%;
+        margin-right: 32px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+
+        .image {
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+
+    .infoContainer {
+
+        p {
+            margin: 0;
+        }
+
+        .city {
+            font-size: 20px;
+            line-height: 140%;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .hall {
+            font-size: 14px;
+            line-height: 140%;
+            letter-spacing: 0.02em;
+            margin: 8px 0;
+        }
+
+        .time {
+            font-size: 18px;
+            line-height: 140%;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+    }
+
+
+
+}
+
+.linkContainer {
+    .button {
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0.02em;
+        padding: 10px 32px;
+        margin-left: 32px;
+        margin-right: 69px;
+        border-radius: 38px;
+        background-color: $button-lite-blue-color;
+        color: $textColor;
+        border: none;
+
+        &:hover {
+            background-color: $blue-color;
+        }
+
+    }
+}
+
+
+
+@media (max-width: 1100px) {
+    .card {
+        width: inherit;
+        margin: 0 100px 32px 100px;
+    }
+
+    .contentContainer {
+        padding: 12px 24px;
+
+        .imageContainer {
+            min-width: 190px;
+            width: 190px;
+            height: 134px;
+            margin-right: 24px;
+        }
+    }
+}
+
+@media (max-width: 970px) {
+    .linkContainer {
+        .button {
+            padding: 8px 16px;
+            font-size: 14px;
+            margin-left: 24px;
+            margin-right: 50px;
+        }
+    }
+
+    .contentContainer {
+        .imageContainer {
+            min-width: 160px;
+            width: 160px;
+        }
+    }
+
+    .dateContainer {
+        width: 75px;
+        height: 90px;
+        margin: 31px 24px 31px 40px;
+        text-align: center;
+
+        .day {
+            font-size: 26px;
+            line-height: 120%;
+        }
+
+        .month {
+            font-size: 26px;
+            line-height: 120%;
+        }
+    }
+}
+
+
+@media (max-width: 890px) {
+    .card {
+        margin: 0 32px 32px 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        height: 142px;
+    }
+
+
+    .linkContainer {
+        .button {
+            margin-left: 16px;
+            margin-right: 24px;
+        }
+    }
+
+    .contentContainer {
+        background-image: repeating-linear-gradient(180deg, #f3da8c, #f3da8c 16px, transparent 16px, transparent 28px),
+            repeating-linear-gradient(180deg, #f3da8c, #f3da8c 16px, transparent 16px, transparent 28px);
+        padding: 8px 16px;
+
+        .imageContainer {
+            min-width: 140px;
+            width: 140px;
+            margin-right: 16px;
+        }
+
+
+        .infoContainer {
+            .city {
+                font-size: 16px;
+            }
+
+            .hall {
+                font-size: 12px;
+            }
+
+            .time {
+                font-size: 16px;
+            }
+
+        }
+    }
+
+    .dateContainer {
+        height: 70px;
+        margin: 31px 16px 31px 40px;
+
+        .day,
+        .month {
+            font-size: 20px;
+            line-height: 120%;
+        }
+
+
+        .year {
+            font-size: 14px;
+            line-height: 110%;
+        }
+    }
+
+
+}
+
+
+@media (max-width: 680px) {
+
+    .card::before,
+    .card::after,
+    .card .corner::before,
+    .card .corner::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 72px;
+        background: #FFFCF8;
+        border: 2px solid $gold-color; // Gold border
+        border-radius: 50%;
+    }
+
+    // Top-left cutout
+    .card::before {
+        top: -38.2px;
+
+        left: -37px;
+    }
+
+    // Top-right cutout
+    .card::after {
+        top: -38.2px;
+
+        right: -37px;
+    }
+
+    // Bottom-left cutout
+    .card .corner::before {
+        left: -37px;
+    }
+
+    // Bottom-right cutout
+    .card .corner::after {
+        right: -37px;
+    }
+
+
+
+
+    .linkContainer {
+
+        .button {
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-left: 16px;
+            margin-right: 24px;
+        }
+    }
+
+    .contentContainer {
+
+        padding: 8px 16px;
+
+        .imageContainer {
+            min-width: 130px;
+            width: 130px;
+            margin-right: 16px;
+        }
+
+
+        .infoContainer {
+            .city {
+                font-size: 16px;
+            }
+
+            .hall {
+                font-size: 12px;
+            }
+
+            .time {
+                font-size: 16px;
+            }
+
+        }
+    }
+
+    .dateContainer {
+        height: 60px;
+        width: 60px;
+        margin: 31px 16px 31px 24px;
+
+        .day,
+        .month {
+            font-size: 18px;
+            line-height: 110%;
+        }
+
+
+        .year {
+            font-size: 12px;
+            line-height: 100%;
+        }
+    }
+}
+
+
+@media (max-width: 590px) {
+    .linkContainer {
+
+        .button {
+            margin-left: 8pxpx;
+            margin-right: 16px;
+        }
+    }
+
+    .contentContainer {
+
+        padding: 8px 16px;
+
+        .imageContainer {
+            min-width: 130px;
+            width: 100%;
+            margin-right: 8px;
+            display: none;
+        }
+
+
+        .infoContainer {
+            width: 100%;
+
+            .city {
+                font-size: 16px;
+            }
+
+            .hall {
+                font-size: 12px;
+            }
+
+            .time {
+                font-size: 16px;
+            }
+
+        }
+    }
+
+    .dateContainer {
+        width: 60px;
+        min-width: 60px;
+        height: 80px;
+        margin: 31px 16px 31px 32px;
+
+        .day,
+        .month {
+            font-size: 26px;
+            line-height: 120%;
+        }
+
+
+        .year {
+            font-size: 14px;
+            line-height: 100%;
+        }
+    }
+}
+
+
+@media (max-width: 480px) {
+    .card {
+        margin: 0 16px 32px 16px;
+    }
+
+    // .linkContainer {
+
+    //     .button {
+    //         padding: 6px 12px;
+    //         font-size: 12px;
+    //         margin-left: 16px;
+    //         margin-right: 24px;
+    //     }
+    // }
+
+    .contentContainer {
+
+
+
+        .infoContainer {
+
+            .city {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .hall {
+                font-size: 12px;
+            }
+
+            .time {
+                font-size: 16px;
+            }
+
+        }
+    }
+
+    // .dateContainer {
+    //     height: 60px;
+    //     width: 60px;
+    //     margin: 31px 16px 31px 24px;
+
+    //     .day,
+    //     .month {
+    //         font-size: 18px;
+    //         line-height: 110%;
+    //     }
+
+
+    //     .year {
+    //         font-size: 12px;
+    //         line-height: 100%;
+    //     }
+    // }
+}
+
+
+@media (max-width: 430px) {
+   .card{
+    height: fit-content;
+   }
+
+    .linkContainer {
+
+        .button {
+            margin-left: 8px;
+            margin-right: 16px;
+        }
+    }
+
+    .contentContainer {
+
+
+
+        .infoContainer {
+
+            .city {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .hall {
+                font-size: 12px;
+            }
+
+            .time {
+                font-size: 16px;
+            }
+
+        }
+    }
+
+    .dateContainer {
+        margin: 31px 8px 31px 16px;
+
+    }
+}

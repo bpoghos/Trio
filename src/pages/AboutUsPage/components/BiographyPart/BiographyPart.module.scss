@@ -1,0 +1,172 @@
+@import "../../../../styles/variables/fontFamily.module";
+@import "../../../../styles/variables/colors.module";
+
+
+.biographyPartContainer {
+    margin-top: 60px;
+
+    h1 {
+        font-family: $decorativeFont;
+        margin-top: 60px;
+        margin-bottom: 40px;
+    }
+}
+
+
+.trioText {
+    display: flex;
+    gap: 26px;
+    margin-bottom: 40px;
+
+    p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 140%;
+        letter-spacing: 0.02em;
+    }
+}
+
+
+.armineText {
+    img {
+        min-width: 288px;
+        min-height: 435px;
+        float: left;
+        margin-right: 30px;
+        max-width: 320px;
+        shape-outside: unset;
+        border-radius: 4px;
+    }
+}
+
+
+.karenShText {
+    margin-top: 30px;
+    // display: flex;
+    // align-items: center;
+
+
+    img {
+        // order: 2;
+        max-width: 320px;
+        min-width: 288px;
+        min-height: 435px;
+        float: right;
+        margin-left: 30px;
+        margin-bottom: 30px;
+        shape-outside: unset;
+        border-radius: 4px;
+    }
+}
+
+.karenQText {
+    margin-top: 30px;
+
+    img {
+        min-width: 288px;
+        min-height: 435px;
+        float: left;
+        margin-right: 30px;
+        max-width: 320px;
+        shape-outside: unset;
+        border-radius: 4px;
+    }
+}
+
+
+
+.imageContainer {
+    min-width: 330px;
+    height: 207px;
+
+
+
+    img {
+        width: 100%;
+    }
+}
+
+.wave {
+    width: 100vw; // Full viewport width
+    position: relative;
+    left: 50%; // Move the element halfway across the screen
+    transform: translateX(-50%); // Shift it back left by half its own width
+}
+
+
+
+@media (max-width: 1200px) {
+    .biographyPartContainer {
+        margin: 60px 100px 0 100px;
+        width: auto;
+    }
+}
+
+@media (max-width: 991px) {
+    .biographyPartContainer {
+        margin: 60px 32px 0 32px;
+    }
+
+    // .karenShText{
+    //     align-items: start;
+    // }
+    // .karenQText{
+    //     align-items: start;
+    // }
+
+    // .armineText1{
+    //     align-items: start;
+    // }
+}
+
+@media (max-width: 800px) {
+    .trioText {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 16px;
+    }
+
+    // // .armineText{
+    // //     display: block;
+    // // }
+    // .karenShText{
+    //     margin-top: 30px;
+    //     flex-direction: row;
+    //     gap: 34px;
+    //     align-items: start;
+
+    //     // .shKarenTextOrder{
+    //     //     order: 1;
+    //     // }
+    // }
+    // .karenQText{
+    //     flex-direction: row;
+    //     gap: 34px;
+    //     margin-top: 30px;
+    //     align-items: start;
+    // }
+
+    // // .armineText1{
+    // //     display: flex;
+    // //     gap: 34px;
+    // //     margin-bottom: 30px;
+    // //     align-items: center;
+    // // }
+
+    .text2Paragraph {
+        order: 2;
+    }
+
+    .imageContainer {
+        width: 100%;
+        min-width: 200px;
+        height: auto;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .biographyPartContainer {
+        margin: 60px 16px 0 16px;
+    }
+}

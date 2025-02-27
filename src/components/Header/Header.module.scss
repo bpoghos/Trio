@@ -1,0 +1,179 @@
+@import "../../styles/variables/colors.module";
+
+
+.relativeHeader {
+    position: relative !important;
+    background: $white-color !important;  // Force relative positioning on matching routes
+  }
+
+.header {
+    height: 80px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(195, 200, 194, 0.4) 0%,
+      rgba(221, 221, 221, 0.4) 59%,
+      rgba(219, 219, 219, 0.4) 100%
+    );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: absolute;
+    z-index: 1;
+    transition: 0.3s all; // Sync transition effects
+  
+    &.active {
+      background: #FFFCF8;
+    }
+}
+
+
+
+.headerContainer {}
+
+.navBrand {
+    padding: 0;
+
+    :hover {
+        cursor: pointer;
+    }
+}
+
+.logo {
+    height: 60px;
+}
+
+.menuBodyContainer {
+    width: 450px !important;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0 0 0 auto;
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 400;
+}
+
+
+@media (max-width:1180px) {
+
+    .headerContainer {
+        margin: 0 80px;
+    }
+}
+
+@media (max-width:991px) {
+
+    .navToggle{
+        color: $textColor;
+        border: none;
+
+        &.activeToggler{
+            color: $orange-text-color;
+        }
+
+        &:hover,
+        &:active,
+        &:focus{
+            box-shadow: none;
+        }
+    }
+
+    .coll {
+        background: linear-gradient(
+            to right,
+            rgba(195, 200, 194, 0.4) 0%,
+            rgba(221, 221, 221, 0.4) 59%,
+            rgba(219, 219, 219, 0.4) 100%
+          );
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          position: absolute;
+          top: 80px; // Same as header height
+          left: 0;
+          width: 100%;
+          z-index: 0;
+          transition: 0.3s all;
+        
+          &.active {
+            background: #FFFCF8; 
+          }
+
+        .menuBodyContainer {
+            width: 100% !important;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .navLink {
+            height: 50px;
+            transition: all 0.5s;
+
+            &:hover {
+                font-size: 20px;
+                color: $orange-text-color;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width:860px) {
+
+    .header {
+        height: 60px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+
+    .coll {
+        top: 60px;
+    }
+}
+
+@media (max-width:480px) {
+
+    .headerContainer {
+        margin: 0 16px;
+    }
+
+    .header {
+        height: 50px;
+    }
+
+    .logo {
+        height: 30px;
+    }
+
+    .coll {
+        top: 50px;
+    }
+}
+
+@media (max-width:393px) {
+
+   
+}
+
+
+.adminHeader{
+    display: flex;
+    justify-content: center;
+
+    .adminHeaderContainer{
+        max-width: 100% !important;
+        margin: 0 32px;
+    }
+}
+
+.logOutButton{
+    margin-left: 10px;
+}
+
+.adminButtons{
+    margin-left: 10px;
+    
+}

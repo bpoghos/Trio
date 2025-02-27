@@ -1,0 +1,205 @@
+@import "../../../../styles/variables/fontFamily.module";
+@import "../../../../styles/variables/colors.module";
+
+
+
+.hearOurSoundContainer {
+    margin-top: 140px;
+
+    h1 {
+        font-family: $decorativeFont;
+    }
+}
+
+.cardsContainer {
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.ourSoundItem {
+    position: relative; // Necessary for positioning the hover container
+    width: 285px;
+    height: 367px;
+    border-radius: 250px;
+    overflow: hidden; // Ensures content doesn't spill out of the rounded edges
+    cursor: pointer; // Gives a pointer cursor on hover to indicate interactivity
+
+    img {
+        width: 100%;
+        border-radius: 250px;
+        transition: transform 0.3s ease-in-out; // Optional zoom effect on hover
+    }
+
+    .hoverContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.3); // Semi-transparent dark overlay
+        width: 100%;
+        height: 100%;
+        border-radius: 250px;
+        opacity: 0; // Hidden by default
+        transition: opacity 0.3s ease-in-out; // Smooth fade-in effect
+
+        Button {
+            background-color: transparent;
+            border-radius: 50%;
+            color: $text-white-color;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Subtle shadow for the button
+
+            // Transition for scaling and color change of the button
+            transition: transform 0.3s ease, color 0.3s ease;
+
+            &:hover {
+                color: $orange-text-color;
+                transform: scale(1.2); // Slightly larger when hovering
+            }
+
+            &:focus,
+            &:active {
+                background-color: transparent;
+            }
+
+            &:active {
+                color: $text-white-color;
+            }
+
+            // Transition for the icon inside the button
+            .icon {
+                transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+                font-size: 2rem; // Default size of the icon
+                color: $text-white-color; // Start with white color
+            }
+
+            // When the icon is in play state (default)
+            &.playing .icon {
+                transform: scale(1.2); // Icon grows bigger when playing
+                color: $orange-text-color; // Icon turns orange when playing
+            }
+        }
+
+
+
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.05); // Slight zoom effect on image hover
+        }
+
+        .hoverContainer {
+            opacity: 1; // Make the overlay visible on hover
+        }
+    }
+
+    &:nth-child(2) {
+        margin-top: 90px; // Keeps your second item shifted down
+    }
+}
+
+
+
+
+
+@media (max-width: 1100px) {
+    .hearOurSoundContainer {
+        max-width: 940px !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .hearOurSoundContainer {
+        max-width: 840px !important;
+
+        h1 {
+            margin-left: 20px;
+        }
+    }
+
+    .ourSoundItem {
+        width: 225px;
+        height: 297px;
+    }
+}
+
+@media (max-width: 900px) {
+
+
+    .cardsContainer {
+
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 760px) {
+    .ourSoundItem {
+        width: 185px;
+        height: 237px;
+    }
+}
+
+@media (max-width: 700px) {
+    .hearOurSoundContainer {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 620px) {
+    .ourSoundItem {
+        width: 155px;
+        height: 197px;
+    }
+}
+
+@media (max-width: 540px) {
+    .hearOurSoundContainer {
+        h1 {
+            margin: 0 16px;
+            text-align: center;
+        }
+
+
+    }
+
+    .cardsContainer {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        gap: 40px;
+    }
+
+    .ourSoundItem {
+        width: 285px;
+        height: 367px;
+
+
+        &:nth-child(2) {
+            margin-top: 0; // Keeps your second item shifted down
+        }
+    }
+
+}
+
+@media (max-width: 393px) {
+    .ourSoundItem {
+        width: 215px;
+        height: 277px;
+    }
+}

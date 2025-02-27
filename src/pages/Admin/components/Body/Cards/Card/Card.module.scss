@@ -1,0 +1,16 @@
+.imageContainer{
+    height: 38px;
+    
+
+    img{
+        border-radius: 4px;
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+    &:hover{
+        height: 140px;
+        position: absolute;
+    }
+}
+

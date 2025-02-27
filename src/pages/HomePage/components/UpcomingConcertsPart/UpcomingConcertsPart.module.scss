@@ -1,0 +1,70 @@
+@import "../../../../styles/variables/fontFamily.module";
+
+
+.upcomingConcertsContainerPart {
+    position: relative;
+    margin-top: 60px;
+
+    .upcomingConcertsContainer {
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+
+
+    h1 {
+        font-family: $decorativeFont;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .upcomingConcertsContainerPart {
+        max-width: 940px !important;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .upcomingConcertsContainerPart {
+        max-width: 840px !important;
+
+
+        .upcomingConcertsContainer {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        h1 {
+            font-family: $decorativeFont;
+            margin-left: 20px;
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .upcomingConcertsContainerPart {
+
+
+        h1 {
+            margin: 0;
+            text-align: center;
+        }
+    }
+}
+
+
+@media (max-width: 440px) {
+    .upcomingConcertsContainerPart {
+
+
+        h1 {
+            margin: 0 16px;
+            text-align: center;
+        }
+    }
+}

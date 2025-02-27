@@ -1,0 +1,302 @@
+@import "../../../../styles/variables/fontFamily.module";
+@import "../../../../styles/variables/colors.module";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  background-color: aliceblue;
+  overflow: hidden;
+
+  .imageEffect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(17, 17, 17, 0) 60%, rgb(17, 17, 17) 101%);
+    z-index: 1;
+  }
+
+  .image {
+    width: calc(100% + 10px);
+    right: 6px;
+    height: 100%;
+    object-fit: initial;
+    z-index: 0;
+    background-color: #FFFCF8;
+  }
+
+}
+
+.wave {
+  width: 100%;
+  position: absolute;
+  top: 53.5%;
+  left: 0;
+  z-index: 3;
+}
+
+.descriptionWave {
+  position: relative;
+  width: 100%;
+  top: 100%;
+  left: 0;
+
+  img {
+    width: 100%;
+  }
+
+  .descriptionFirst {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 37%;
+    color: $text-white-color;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 140px;
+    letter-spacing: 0.02em;
+    font-style: italic;
+
+    .quoteMark{
+      font-size: 40px;
+      font-family: $decorativeFont;
+      font-weight: bold;
+      line-height: 150px;
+      color: $text-white-color;
+    }
+  }
+
+  .descriptionSecond{
+    position: absolute;
+    width: 100%;
+    text-align: end;
+    top: 62%;
+    color: $text-white-color;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    padding: 0 20%;
+  }
+
+}
+
+
+
+@media (max-width: 1400px) {
+
+  .wave{
+    top: 52.5%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: 34%;
+  }
+  .descriptionSecond{
+    top: 62%;
+  }
+}
+}
+
+@media (max-width: 1280px) {
+  .wave{
+    top: 53%;
+  }
+  .descriptionWave{
+  .descriptionSecond{
+    top: 62%;
+  }
+}
+}
+
+@media (max-width: 1100px) {
+  .wave{
+    top: 52%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: 30%;
+  }
+  .descriptionSecond{
+    top: 60%;
+  }
+}
+}
+
+@media (max-width: 1000px) {
+
+  .descriptionWave{
+  .descriptionSecond{
+    padding: 0 15%;
+  }
+}
+}
+
+
+@media (max-width: 940px) {
+
+  .descriptionWave{
+  .descriptionFirst{
+    font-size: 16px;
+
+    .quoteMark{
+      font-size: 34px;
+    }
+  }
+  .descriptionSecond{
+    font-size: 14px;
+  }
+}
+}
+
+@media (max-width: 890px) {
+  .wave{
+    top: 51%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: 26%;
+  }
+  .descriptionSecond{
+    top: 63%;
+  }
+}
+}
+
+@media (max-width: 720px) {
+  .wave{
+    top: 50%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: 22%;
+    font-size: 14px;
+
+    .quoteMark{
+      font-size: 30px;
+    }
+  }
+  .descriptionSecond{
+    top: 66%;
+    font-size: 12px;
+  }
+}
+}
+
+
+@media (max-width: 600px) {
+  .wave{
+    top: 49%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: 20%;
+  }
+  .descriptionSecond{
+    top: 70%;
+  }
+}
+}
+
+@media (max-width: 530px) {
+
+  .descriptionWave{
+  .descriptionFirst{
+    top: 16%;
+    font-size: 12px;
+
+    .quoteMark{
+      font-size: 24px;
+    }
+  }
+  .descriptionSecond{
+    top: 78%;
+    font-size: 10px;
+    padding: 0 10%;
+  }
+}
+}
+
+@media (max-width: 480px) {
+  .wave{
+    top: 47.5%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: 6%;
+    font-size: 10px;
+  }
+
+  .descriptionSecond{
+    top: 70%;
+    font-size: 8px;
+  }
+}
+}
+
+
+@media (max-width: 420px) {
+  .wave{
+    top: 46.5%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: 2%;
+    font-size: 8px;
+
+    .quoteMark{
+      font-size: 20px;
+    }
+  }
+
+  .descriptionSecond{
+    top: 68%;
+    font-size: 6px;
+  }
+}
+}
+
+@media (max-width: 393px) {
+  .wave{
+    top: 46%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: -3%;
+  }
+
+  .descriptionSecond{
+    top: 66%;
+  }
+}
+}
+
+@media (max-width: 350px) {
+  .wave{
+    top:45%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: -6%;
+  }
+
+  .descriptionSecond{
+    top: 70%;
+  }
+}
+}
+
+@media (max-width: 320px) {
+  .wave{
+    top: 44%;
+  }
+  .descriptionWave{
+  .descriptionFirst{
+    top: -10%;
+  }
+
+  .descriptionSecond{
+    top: 70%;
+  }
+}
+}

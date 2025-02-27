@@ -1,0 +1,1226 @@
+@import "../../styles/variables/colors.module";
+@import "../../styles/variables/fontFamily.module";
+
+
+.calendarContainer {
+  max-width: 472px;
+  max-height: fit-content;
+  background: none;
+  border-radius: 40px;
+  padding: 40px 60px;
+  border: 1px solid #ccc;
+  position: relative;
+
+  .react-calendar {
+    position: relative;
+    border: none;
+
+    background: none !important;
+
+    .react-calendar__month-view__days {
+      width: 352px;
+      gap: 12px;
+
+
+
+      .react-calendar__month-view__days__day {
+        position: relative; // Establish a stacking context for children
+        color: $textColor;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: default;
+
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: transparent !important;
+          outline: none !important;
+          cursor: default;
+        }
+
+
+        img {
+          position: absolute;
+          width: 100%; // Adjust as necessary
+          height: 100%; // Adjust as necessary
+          object-fit: contain; // Maintain the image's aspect ratio
+          pointer-events: none; // Prevent the image from intercepting click events
+          cursor: default;
+        }
+
+        &--neighboringMonth {
+          visibility: hidden;
+          pointer-events: none;
+        }
+      }
+    }
+
+    .react-calendar__navigation button {
+      height: 48px;
+      font-size: 24px;
+      color: #171717;
+      background-color: transparent;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent !important;
+        outline: none !important;
+      }
+
+
+
+      .react-calendar__navigation__label__labelText {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 140%;
+      }
+
+    }
+
+    .react-calendar__month-view__weekdays {
+      gap: 12px;
+      text-align: center;
+      font: inherit;
+      font-size: 16px !important;
+      margin: 12px 0;
+      font-weight: 300;
+      color: #848484 !important;
+
+      .react-calendar__month-view__weekdays__weekday {
+        padding: 0;
+        max-width: 40px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .react-calendar__tile {
+      max-width: 40px;
+      height: 40px;
+      padding: 10px 6.6667px;
+      background: none;
+      text-align: center;
+      font: inherit;
+      font-size: 0.833em;
+
+
+      &--disabled {
+        display: none;
+      }
+
+      &.highlighted {
+        background-color: #ffcc00;
+      }
+
+
+    }
+
+    abbr[title] {
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      cursor: default;
+      text-decoration-skip-ink: auto;
+      text-transform: none;
+    }
+  }
+
+  .hover-box {
+    position: fixed;
+    max-width: 640px;
+    z-index: 100;
+    transform: translate(-97%, -65%);
+    display: flex;
+    flex-direction: row-reverse;
+
+
+
+
+
+
+
+    .hover-previously {
+      width: 344px;
+      height: auto;
+      transform: translate(0, 20%);
+
+
+
+      .previous-concert {
+        width: 100%;
+        padding: 16px;
+        background: #171717;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+
+
+
+      }
+
+      .date-container {
+        width: 65px;
+        height: 85px;
+        padding: 0;
+        margin: 0;
+        color: #ccc;
+        text-align: center;
+
+        .day {
+          font-size: 22px;
+          font-weight: bold;
+          line-height: 150%;
+          font-family: $decorativeFont;
+          margin: 0;
+        }
+
+        .month {
+          font-size: 22px;
+          font-weight: bold;
+          line-height: 130%;
+          text-transform: uppercase;
+          font-family: $decorativeFont;
+          margin: 0;
+        }
+
+        .year {
+          font-size: 16px;
+          line-height: 140%;
+          text-transform: uppercase;
+          margin: 0;
+        }
+      }
+
+      .info-container {
+        width: 230px;
+        height: 76px;
+        color: #ccc;
+        margin-left: 16px;
+
+        p {
+          margin: 0;
+        }
+
+        .city-name {
+          font-size: 20px;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          line-height: 140%;
+          margin-bottom: 4px;
+        }
+
+        .hall-name {
+          letter-spacing: 0.02em;
+          line-height: 140%;
+        }
+
+      }
+
+
+    }
+
+    .hover-upcoming {
+      width: 640px;
+      min-width: 640px;
+      height: auto;
+      color: #0078d4;
+
+
+      .upcoming-concert {
+        width: 100%;
+        padding: 32px 16px;
+        background: #171717;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+
+        .content-wrapper {
+          display: flex;
+        }
+
+
+        .date-container {
+          width: 95px;
+          min-width: 95px;
+          height: 110px;
+          padding: 0;
+          margin: 0;
+          color: $orange-text-color;
+          text-align: center;
+
+
+
+          .day {
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 150%;
+            font-family: $decorativeFont;
+            margin: 0;
+          }
+
+          .month {
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 120%;
+            text-transform: uppercase;
+            font-family: $decorativeFont;
+            margin: 0;
+          }
+
+          .year {
+            font-size: 16px;
+            line-height: 140%;
+            text-transform: uppercase;
+            margin: 0;
+          }
+        }
+
+        .image-container {
+          width: 180px;
+          min-width: 180px;
+          height: 120px;
+          margin: 0 16px;
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 100%;
+            border-radius: 10px;
+          }
+        }
+
+        .info-container {
+          width: 100%;
+          height: 110px;
+          color: $text-white-color;
+
+          p {
+            margin: 0;
+          }
+
+          .city-name,
+          .time {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            line-height: 140%;
+          }
+
+          .time {
+            margin-bottom: 8px;
+          }
+
+          .hall-name {
+            letter-spacing: 0.02em;
+            line-height: 140%;
+          }
+
+        }
+
+
+      }
+    }
+
+    .hover-date {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .hover-details {
+      font-size: 14px;
+    }
+  }
+
+  .hover-trigger-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+}
+
+
+
+@media (max-width: 1000px) {
+  .calendarContainer {
+    .hover-box {
+      position: fixed;
+      max-width: 500px;
+      z-index: 100;
+      transform: translate(-50%, -69%);
+      display: flex;
+      flex-direction: row-reverse;
+
+      .hover-upcoming {
+        width: 500px;
+        min-width: 500px;
+        height: auto;
+        color: #0078d4;
+      }
+
+      .hover-date {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .hover-details {
+        font-size: 14px;
+      }
+
+      .hover-previously {
+        width: 344px;
+        height: auto;
+        transform: translate(-24%, 23%);
+      }
+    }
+  }
+}
+
+@media (max-width: 840px) {
+  .calendarContainer {
+    .hover-box {
+      position: fixed;
+      max-width: 320px;
+      max-height: fit-content;
+      z-index: 100;
+      transform: translate(-50%, -80%);
+      display: flex;
+      flex-direction: row-reverse;
+
+      .hover-upcoming {
+        width: 320px;
+        min-width: 320px;
+        height: auto;
+        color: #0078d4;
+
+
+        .upcoming-concert {
+          width: 100%;
+          padding: 32px 12px;
+          background: #171717;
+          border-radius: 16px;
+          display: block;
+
+
+
+          .content-wrapper {
+            padding-bottom: 12px;
+          }
+
+          .date-container {
+            width: 95px;
+            min-width: 95px;
+            height: 110px;
+            padding: 0;
+            margin: 0;
+            color: $orange-text-color;
+            text-align: center;
+
+
+
+            .day {
+              font-size: 32px;
+              font-weight: bold;
+              line-height: 150%;
+              font-family: $decorativeFont;
+              margin: 0;
+            }
+
+            .month {
+              font-size: 32px;
+              font-weight: bold;
+              line-height: 120%;
+              text-transform: uppercase;
+              font-family: $decorativeFont;
+              margin: 0;
+            }
+
+            .year {
+              font-size: 16px;
+              line-height: 140%;
+              text-transform: uppercase;
+              margin: 0;
+            }
+          }
+
+          .image-container {
+            width: 180px;
+            min-width: 180px;
+            height: 120px;
+            margin: 0 16px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 10px;
+            }
+          }
+
+          .info-container {
+            width: 100%;
+            height: auto;
+            color: $text-white-color ;
+            padding: 12px 12px 0 12px;
+            border-top: 1px solid #323232;
+
+
+            p {
+              margin: 0;
+            }
+
+            .city-name,
+            .time {
+              font-size: 20px;
+              font-weight: 500;
+              letter-spacing: 0.02em;
+              line-height: 140%;
+            }
+
+            .time {
+              margin-bottom: 8px;
+            }
+
+            .hall-name {
+              letter-spacing: 0.02em;
+              line-height: 140%;
+            }
+
+          }
+
+
+        }
+      }
+
+      .hover-date {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .hover-details {
+        font-size: 14px;
+      }
+
+
+
+      .hover-previously {
+        width: 320px;
+        height: fit-content;
+        transform: translate(0%, 35%);
+
+
+
+      }
+    }
+
+  }
+}
+
+
+@media (max-width: 660px) {
+  .calendarContainer {
+    .hover-box {
+      position: fixed;
+      max-width: 320px;
+      max-height: fit-content;
+      z-index: 100;
+      display: flex;
+      flex-direction: row-reverse;
+
+      left: 50%;
+      transform: translateX(calc(-50% + 52px)) translateY(-80%);
+      right: 16px;
+
+      .hover-upcoming {
+        width: 320px;
+        min-width: 320px;
+        height: auto;
+        color: #0078d4;
+
+
+        .upcoming-concert {
+          width: 100%;
+          padding: 32px 12px;
+          background: #171717;
+          border-radius: 16px;
+          display: block;
+
+
+
+          .content-wrapper {
+            padding-bottom: 12px;
+          }
+
+          .date-container {
+            width: 95px;
+            min-width: 95px;
+            height: 110px;
+            padding: 0;
+            margin: 0;
+            color: $orange-text-color;
+            text-align: center;
+
+
+
+            .day {
+              font-size: 32px;
+              font-weight: bold;
+              line-height: 150%;
+              font-family: $decorativeFont;
+              margin: 0;
+            }
+
+            .month {
+              font-size: 32px;
+              font-weight: bold;
+              line-height: 120%;
+              text-transform: uppercase;
+              font-family: $decorativeFont;
+              margin: 0;
+            }
+
+            .year {
+              font-size: 16px;
+              line-height: 140%;
+              text-transform: uppercase;
+              margin: 0;
+            }
+          }
+
+          .image-container {
+            width: 180px;
+            min-width: 180px;
+            height: 120px;
+            margin: 0 16px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 10px;
+            }
+          }
+
+          .info-container {
+            width: 100%;
+            height: auto;
+            color: $text-white-color ;
+            padding: 12px 12px 0 12px;
+            border-top: 1px solid #323232;
+
+
+            p {
+              margin: 0;
+            }
+
+            .city-name,
+            .time {
+              font-size: 20px;
+              font-weight: 500;
+              letter-spacing: 0.02em;
+              line-height: 140%;
+            }
+
+            .time {
+              margin-bottom: 8px;
+            }
+
+            .hall-name {
+              letter-spacing: 0.02em;
+              line-height: 140%;
+            }
+
+          }
+
+
+        }
+      }
+
+      .hover-date {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .hover-details {
+        font-size: 14px;
+      }
+
+
+
+      .hover-previously {
+        width: 320px;
+        height: fit-content;
+        transform: translate(0%, 35%);
+
+
+
+      }
+    }
+
+  }
+}
+
+@media (max-width: 540px) {
+  .calendarContainer {
+    max-width: 340px;
+    max-height: fit-content;
+    padding: 24px;
+
+    .react-calendar {
+
+      .react-calendar__month-view__days {
+        width: 292px;
+        gap: 2px;
+      }
+
+      .react-calendar__month-view__weekdays {
+        text-align: center;
+        font: inherit;
+        font-size: 16px !important;
+        gap: 2px;
+        margin: 12px 0;
+        font-weight: 300;
+        color: #848484 !important;
+
+        .react-calendar__month-view__weekdays__weekday {
+          padding: 0;
+          max-width: 40px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .hover-box {
+      position: fixed;
+      max-width: 260px;
+      max-height: fit-content;
+      z-index: 100;
+      display: flex;
+      flex-direction: row-reverse;
+
+      left: 50%;
+      transform: translateX(calc(-50% + 52px)) translateY(-74%);
+      right: 16px;
+
+      .hover-upcoming {
+        width: 260px;
+        min-width: 260px;
+        height: auto;
+        color: #0078d4;
+
+
+        .upcoming-concert {
+          width: 100%;
+          padding: 24px 8px;
+          background: #171717;
+          border-radius: 16px;
+          display: block;
+
+
+
+          .content-wrapper {
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .date-container {
+            width: 70px;
+            min-width: 70px;
+            height: 90px;
+            padding: 0;
+            margin: 0;
+            color: $orange-text-color;
+            text-align: center;
+
+
+
+            .day {
+              font-size: 24px;
+              font-weight: bold;
+              line-height: 150%;
+              font-family: $decorativeFont;
+              margin: 0;
+            }
+
+            .month {
+              font-size: 24px;
+              font-weight: bold;
+              line-height: 120%;
+              text-transform: uppercase;
+              font-family: $decorativeFont;
+              margin: 0;
+            }
+
+            .year {
+              font-size: 12px;
+              line-height: 140%;
+              text-transform: uppercase;
+              margin: 0;
+            }
+          }
+
+          .image-container {
+            width: 140px;
+            min-width: 140px;
+            height: 90px;
+            margin: 0 16px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 10px;
+            }
+          }
+
+          .info-container {
+            width: 100%;
+            height: auto;
+            color: $text-white-color ;
+            padding: 12px 12px 0 12px;
+            border-top: 1px solid #323232;
+
+
+            p {
+              margin: 0;
+            }
+
+            .city-name,
+            .time {
+              font-size: 16px;
+              font-weight: 500;
+              letter-spacing: 0.02em;
+              line-height: 140%;
+            }
+
+            .time {
+              margin-bottom: 8px;
+            }
+
+            .hall-name {
+              font-size: 12px;
+              letter-spacing: 0.02em;
+              line-height: 140%;
+            }
+
+          }
+
+
+        }
+      }
+
+      .hover-date {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .hover-details {
+        font-size: 14px;
+      }
+
+
+
+      .hover-previously {
+        width: 260px;
+        height: fit-content;
+        transform: translate(0%, 27%);
+
+
+
+        .previous-concert {
+          width: 100%;
+          padding: 16px;
+          background: #171717;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+
+
+
+        }
+
+        .date-container {
+          width: 65px;
+          height: 85px;
+          padding: 0;
+          margin: 0;
+          color: #ccc;
+          text-align: center;
+
+          .day {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 150%;
+            font-family: $decorativeFont;
+            margin: 0;
+          }
+
+          .month {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 130%;
+            text-transform: uppercase;
+            font-family: $decorativeFont;
+            margin: 0;
+          }
+
+          .year {
+            font-size: 12px;
+            line-height: 140%;
+            text-transform: uppercase;
+            margin: 0;
+          }
+        }
+
+        .info-container {
+          width: 230px;
+          height: 76px;
+          color: #ccc;
+          margin-left: 16px;
+
+          p {
+            margin: 0;
+          }
+
+          .city-name {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            line-height: 140%;
+            margin-bottom: 4px;
+          }
+
+          .hall-name {
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            line-height: 140%;
+          }
+
+        }
+
+
+
+
+      }
+    }
+
+  }
+}
+
+
+
+@media (max-width: 440px) {
+  .calendarContainer {
+    .hover-box {
+      position: fixed;
+      max-width: 260px;
+      max-height: fit-content;
+      z-index: 100;
+      display: flex;
+      flex-direction: row-reverse;
+
+      left: clamp(16px, 70%, calc(100% - 200px));
+      transform: translateX(-20%) translateY(-74%);
+      right: 16px;
+    }
+  }
+}
+
+
+@media (max-width: 372px) {
+  .calendarContainer {
+    max-width: 288px;
+    max-height: fit-content;
+    padding: 32px 12px;
+
+    .react-calendar {
+
+      .react-calendar__month-view__days {
+        width: 265px;
+        gap: 9px;
+
+      }
+
+      .react-calendar__month-view__weekdays {
+        text-align: center;
+        font: inherit;
+        font-size: 12px !important;
+        gap: 1px;
+        margin: 12px 0;
+        font-weight: 300;
+        color: #848484 !important;
+
+        .react-calendar__month-view__weekdays__weekday {
+          padding: 0;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .react-calendar__tile {
+        max-width: 30px;
+        height: 30px;
+        padding: 10px 6.6667px;
+        background: none;
+        text-align: center;
+        font: inherit;
+        font-size: 0.833em;
+
+
+        &--disabled {
+          display: none;
+        }
+
+        &.highlighted {
+          background-color: #ffcc00;
+        }
+
+
+      }
+
+      abbr[title] {
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        cursor: default;
+        text-decoration-skip-ink: auto;
+        text-transform: none;
+      }
+    }
+
+    .hover-box {
+      position: fixed;
+      max-width: 200px;
+      max-height: fit-content;
+      z-index: 100;
+      display: flex;
+      flex-direction: row-reverse;
+
+      left: 50%;
+      transform: translateX(calc(-50% + 42px)) translateY(-74%);
+      right: 70px;
+
+      .hover-upcoming {
+        width: 200px;
+        min-width: 200px;
+        height: auto;
+        color: #0078d4;
+
+
+        .upcoming-concert {
+          width: 100%;
+          padding: 24px 8px;
+          background: #171717;
+          border-radius: 16px;
+          display: block;
+
+
+
+          .content-wrapper {
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .date-container {
+            width: 50px;
+            min-width: 50px;
+            height: 80px;
+            padding: 0;
+            margin: 0;
+            color: $orange-text-color;
+            text-align: center;
+
+
+
+            .day {
+              font-size: 20px;
+              font-weight: bold;
+              line-height: 150%;
+              font-family: $decorativeFont;
+              margin: 0;
+            }
+
+            .month {
+              font-size: 20px;
+              font-weight: bold;
+              line-height: 120%;
+              text-transform: uppercase;
+              font-family: $decorativeFont;
+              margin: 0;
+            }
+
+            .year {
+              font-size: 12px;
+              line-height: 140%;
+              text-transform: uppercase;
+              margin: 0;
+            }
+          }
+
+          .image-container {
+            width: 120px;
+            min-width: 120px;
+            height:80px;
+            margin: 0 16px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 10px;
+            }
+          }
+
+          .info-container {
+            width: 100%;
+            height: auto;
+            color: $text-white-color ;
+            padding: 12px 12px 0 12px;
+            border-top: 1px solid #323232;
+
+
+            p {
+              margin: 0;
+            }
+
+            .city-name,
+            .time {
+              font-size: 16px;
+              font-weight: 500;
+              letter-spacing: 0.02em;
+              line-height: 140%;
+            }
+
+            .time {
+              margin-bottom: 8px;
+            }
+
+            .hall-name {
+              font-size: 12px;
+              letter-spacing: 0.02em;
+              line-height: 140%;
+            }
+
+          }
+
+
+        }
+      }
+
+      .hover-date {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .hover-details {
+        font-size: 14px;
+      }
+
+
+
+      .hover-previously {
+        width: 200px;
+        height: fit-content;
+        transform: translate(0%, 27%);
+
+
+
+        .previous-concert {
+          width: 100%;
+          padding: 16px;
+          background: #171717;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+
+
+
+        }
+
+        .date-container {
+          width: 65px;
+          height: 85px;
+          padding: 0;
+          margin: 0;
+          color: #ccc;
+          text-align: center;
+
+          .day {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 150%;
+            font-family: $decorativeFont;
+            margin: 0;
+          }
+
+          .month {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 130%;
+            text-transform: uppercase;
+            font-family: $decorativeFont;
+            margin: 0;
+          }
+
+          .year {
+            font-size: 12px;
+            line-height: 140%;
+            text-transform: uppercase;
+            margin: 0;
+          }
+        }
+
+        .info-container {
+          width: 230px;
+          height: 76px;
+          color: #ccc;
+          margin-left: 16px;
+
+          p {
+            margin: 0;
+          }
+
+          .city-name {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            line-height: 140%;
+            margin-bottom: 4px;
+          }
+
+          .hall-name {
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            line-height: 140%;
+          }
+
+        }
+
+
+
+
+      }
+    }
+
+  }
+}

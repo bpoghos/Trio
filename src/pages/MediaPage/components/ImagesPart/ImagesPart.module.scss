@@ -1,0 +1,248 @@
+@import "../../../../styles/variables/colors.module";
+
+.imagesContainer {
+    margin: 60px auto 0 auto;
+   width: 100%;
+   max-width: 1040px;
+
+   
+}
+/* Image Grid Container */
+.imageGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px; /* Space between images */
+    padding: 0 16px;
+}
+
+/* Image Wrapper */
+.gridItem {
+    position: relative;
+    height: 250px; /* Fixed height */
+    display: flex; /* Ensure the image inside scales properly */
+    align-items: center; /* Center image vertically */
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    }
+    
+
+
+/* Image Styling */
+.images {
+    height: 100%; /* Maintain fixed height */
+    width: auto; /* Allow dynamic width */
+    max-width: 100%; /* Prevent overflow */
+    object-fit: cover; /* Ensures it covers the area */
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+
+
+
+
+/* Add Dark Overlay on Hover */
+.gridItem::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* Initially Transparent */
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+
+
+.gridItem:hover::after {
+    background: #1717170e;
+}
+
+.gridItem:hover .images {
+    filter: brightness(0.8); /* Make image slightly darker */
+}
+
+/* Zoom Icon */
+.zoomIcon {
+    position: absolute; /* Absolutely position the icon within the .gridItem */
+    top: 50%;  /* Center it vertically */
+    left: 50%;  /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Offset the icon's dimensions */
+    opacity: 0;  /* Initially hidden */
+    transition: opacity 0.3s ease-in-out;
+    
+    svg {
+        fill: red;
+        width: 20px;
+        height: 20px;
+        z-index: 10;
+    }
+}
+
+
+.gridItem:hover .zoomIcon {
+    opacity: 1;
+}
+
+
+
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    transform: scale(1);
+    transition: ease transform 0.3s;
+
+    svg {
+        margin-left: 8px;
+    }
+
+    .viewMoreButton {
+        background-color: transparent;
+        color: $orange-text-color;
+        border: none;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0.02em;
+        padding: 0;
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+
+.customModal .modal-dialog {
+    max-width: 80vw; // Bigger modal width
+
+}
+
+.customModal {
+    background-color: #171717;
+}
+
+
+
+
+.customModal .modalBody {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background: transparent; // No background
+}
+
+.modalContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    background: #171717;
+}
+
+.imageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.modalImage {
+    max-width: 80vw; // Bigger image
+    max-height: 80vh;
+    object-fit: contain;
+    border: none; // Remove border
+    border-radius: 4px;
+}
+/* ◀ Left & Right Arrows (Outside Image) */
+.prevButton,
+.nextButton {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #171717;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    z-index: 10;
+    
+    svg {
+        min-width: 32px;
+        min-height: 32px;
+    }
+
+    &:hover {
+        background-color: $textColor;
+    }
+}
+
+/* 🛠 Responsive Positions */
+@media (max-width: 1200px) {
+    .prevButton {
+        left: 10px; // Keep inside on smaller screens
+    }
+    .nextButton {
+        right: 10px;
+    }
+}
+
+@media (max-width: 768px) { // Mobile
+    .prevButton,
+    .nextButton {
+       display: none;
+    }
+}
+
+
+/* ⬇ Download Button (Bottom Right on Image) */
+.downloadButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: $blue-color;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.02em;
+    border-radius: 5px;
+
+    svg {
+        margin-right: 4px;
+    }
+
+    &:hover {
+        background-color: $button-hover-dark-color;
+    }
+
+    &:focus {
+        background-color: $button-hover-dark-color !important;
+    }
+
+    &:disabled{
+        background-color: $button-hover-dark-color;
+    }
+}
+
+
+
+

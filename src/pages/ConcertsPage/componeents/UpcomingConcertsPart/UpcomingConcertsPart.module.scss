@@ -1,0 +1,107 @@
+@import "../../../../styles/variables/fontFamily.module";
+@import "../../../../styles/variables/colors.module";
+
+
+.upcomingConcertsContainer {
+    margin-top: 60px;
+
+    h1 {
+        font-family: $decorativeFont;
+        margin: 0;
+    }
+
+
+    .archivebuttonContainer {
+        width: 100%;
+        text-align: end;
+
+
+        .archiveButton,
+        .activeButton {
+            background-color: transparent;
+            color: $textColor;
+            font-family: $decorativeFont;
+            font-weight: bold;
+            padding: 0;
+            border: none;
+        }
+
+        .activeButton {
+            color: $orange-text-color;
+        }
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .upcomingConcertsContainer {
+        h1 {
+            margin-left: 100px;
+        }
+
+        .archiveButton,
+        .activeButton {
+            margin-right: 100px;
+        }
+    }
+}
+
+@media (max-width: 890px) {
+    .upcomingConcertsContainer {
+        h1 {
+            margin-left: 32px;
+        }
+
+        .archivebuttonContainer {
+
+            .archiveButton,
+            .activeButton {
+                margin-right: 32px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .upcomingConcertsContainer {
+        .archivebuttonContainer {
+
+            .archiveButton,
+            .activeButton {
+                margin-right: 32px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 590px) {
+    .upcomingConcertsContainer {
+        .archivebuttonContainer {
+
+            .archiveButton,
+            .activeButton {
+                margin-top: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .upcomingConcertsContainer {
+        h1 {
+            margin-left: 16px;
+        }
+
+        .archivebuttonContainer {
+
+            .archiveButton,
+            .activeButton {
+                font-size: 14px;
+                margin-right: 16px;
+
+            }
+        }
+
+    }
+}

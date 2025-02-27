@@ -1,0 +1,21 @@
+.checkbox {
+    // Target the checkbox input specifically
+    .form-check-input {
+
+        // Change checkbox color when checked
+        &:checked {
+            background-color: #171717; // Checked background color
+            border-color: #171717; // Checked border color
+        }
+
+        // Change the border color when the checkbox is focused
+        &:focus {
+            box-shadow: 0 0 0 0.25rem #17171725; // Example of focus color
+            border-color: #171717; // Focus border color
+        }
+    }
+   
+    display: flex;
+    align-items: center;
+}
+

@@ -1,0 +1,38 @@
+@import "../../../../styles/variables/fontFamily.module";
+
+.GlobalMapContainer{
+    margin-top: 140px;
+    
+    h1{
+        font-family: $decorativeFont;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .GlobalMapContainer{
+        max-width: 940px !important;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .GlobalMapContainer{
+        max-width: 840px !important;
+
+        h1{
+            margin-left: 20px;
+        }
+    }
+}
+@media (max-width: 540px) {
+    .GlobalMapContainer{
+        margin-top: 80px;
+
+        h1{
+            margin: 0;
+            text-align: center;
+            margin: 0 16px;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+@import "../../../../../../styles/variables/fontFamily.module";
+@import "../../../../../../styles/variables/colors.module";
+
+
+
+.card{
+    width: 331px;
+    min-width: 288px;
+    border-bottom: 0.5px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 27px 0;
+
+    .dateContainer{
+        width: 65px;
+        height: 80px;
+        text-align: center;
+        margin-right: 24px;
+
+
+        h4, p{
+            margin: 0;
+        }
+
+        .day,
+        .month{
+            font-family: $decorativeFont;
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 130%;
+        }
+        .year{
+            line-height: 140%;
+            letter-spacing: 0.02em;
+        }
+
+       
+    }
+
+    .infoContainer{
+
+        h5, p{
+            margin: 0;
+        }
+
+        .city{
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            line-height: 140%;
+            margin-bottom: 8px;
+        }
+
+        .hall{
+            line-height: 140%;
+            letter-spacing: 0.02em;
+        }
+
+    }
+}
+
+
+@media (max-width: 743px) {
+.card{
+    width: 100%;
+
+    .dateContainer{
+        min-width: 65px;
+    }
+}
+}
