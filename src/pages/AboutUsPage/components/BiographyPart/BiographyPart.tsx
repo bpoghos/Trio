@@ -17,19 +17,19 @@ const BiographyPart = () => {
             <div className={style.trioBiographyContainer}>
                 <div className={`${style.text1} ${style.trioText}`}>
                     <div className={style.imageContainer}>
-                        <img alt="PhotoTrioBiography" src={photo1} />
+                        <img alt="PhotoTrioBiography" src={photo1} loading="lazy"/>
                     </div>
                     <p>{BiographyText.TrioPart1}</p>
                 </div>
                 <div className={`${style.text2} ${style.trioText}`}>
                     <p className={style.text2Paragraph}>{BiographyText.TrioPart2}</p>
                     <div className={style.imageContainer}>
-                        <img alt="PhotoTrioBiography" src={photo2} />
+                        <img alt="PhotoTrioBiography" src={photo2} loading="lazy" />
                     </div>
                 </div>
                 <div className={`${style.text3} ${style.trioText}`}>
                     <div className={style.imageContainer}>
-                        <img alt="PhotoTrioBiography" src={photo3} />
+                        <img alt="PhotoTrioBiography" src={photo3} loading="lazy" />
                     </div>
                     <p>{BiographyText.TrioPart3}</p>
                 </div>
