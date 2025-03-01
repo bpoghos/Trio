@@ -242,9 +242,9 @@ const handleImageLoad = () => {
             <Modal show={showModal} onHide={handleCloseModal} centered className={style.customModal}>
                 <Modal.Body className={style.modalBody}>
                     <div className={style.modalContent}>
-                        <Button className={style.prevButton} onClick={handlePrevImage} disabled={selectedImageIndex === 0}>
+                        {/* <Button className={style.prevButton} onClick={handlePrevImage} disabled={selectedImageIndex === 0}>
                             {arrowLeftIcon}
-                        </Button>
+                        </Button> */}
                         <div className={style.imageWrapper}
                             onTouchStart={handleTouchStart}
                             onTouchEnd={handleTouchEnd}
@@ -276,9 +276,9 @@ const handleImageLoad = () => {
                                 </>
                             )}
                         </div>
-                        <Button className={style.nextButton} onClick={handleNextImage} disabled={selectedImageIndex === selectedImageArray.length - 1}>
+                        {/* <Button className={style.nextButton} onClick={handleNextImage} disabled={selectedImageIndex === selectedImageArray.length - 1}>
                             {arrowRightIcon}
-                        </Button>
+                        </Button> */}
                     </div>
                 </Modal.Body>
             </Modal>

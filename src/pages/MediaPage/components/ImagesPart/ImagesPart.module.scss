@@ -2,11 +2,10 @@
 
 .imagesContainer {
     margin: 60px auto 0 auto;
-   width: 100%;
-   max-width: 1040px;
-
-   
+    width: 100%;
+    max-width: 1040px;
 }
+
 /* Image Grid Container */
 .imageGrid {
     display: flex;
@@ -26,9 +25,7 @@
     border-radius: 8px;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
-    }
-    
-
+}
 
 /* Image Styling */
 .images {
@@ -39,10 +36,6 @@
     border-radius: 8px;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
-
-
-
-
 
 /* Add Dark Overlay on Hover */
 .gridItem::after {
@@ -57,8 +50,6 @@
 }
 
 /* Hover Effects */
-
-
 .gridItem:hover::after {
     background: #1717170e;
 }
@@ -84,13 +75,9 @@
     }
 }
 
-
 .gridItem:hover .zoomIcon {
     opacity: 1;
 }
-
-
-
 
 .buttonContainer {
     width: 100%;
@@ -118,22 +105,18 @@
         align-items: center;
     }
 
-    &:hover{
+    &:hover {
         transform: scale(1.2);
     }
 }
 
 .customModal .modal-dialog {
     max-width: 80vw; // Bigger modal width
-
 }
 
 .customModal {
     background-color: #171717;
 }
-
-
-
 
 .customModal .modalBody {
     position: relative;
@@ -166,6 +149,7 @@
     border: none; // Remove border
     border-radius: 4px;
 }
+
 /* ◀ Left & Right Arrows (Outside Image) */
 .prevButton,
 .nextButton {
@@ -193,23 +177,30 @@
     }
 }
 
+.prevButton {
+    left: 20px; /* Adjust as needed */
+}
+
+.nextButton {
+    right: 20px; /* Adjust as needed */
+}
+
 /* 🛠 Responsive Positions */
 @media (max-width: 1200px) {
     .prevButton {
-        left: 10px; // Keep inside on smaller screens
+        left: 20px; /* Adjust as needed */
     }
     .nextButton {
-        right: 10px;
+        right: 20px; /* Adjust as needed */
     }
 }
 
 @media (max-width: 768px) { // Mobile
     .prevButton,
     .nextButton {
-       display: none;
+        display: none;
     }
 }
-
 
 /* ⬇ Download Button (Bottom Right on Image) */
 .downloadButton {
@@ -238,11 +229,7 @@
         background-color: $button-hover-dark-color !important;
     }
 
-    &:disabled{
+    &:disabled {
         background-color: $button-hover-dark-color;
     }
 }
-
-
-
-
