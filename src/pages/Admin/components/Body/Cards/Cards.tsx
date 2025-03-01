@@ -27,7 +27,7 @@ const Cards = () => {
 
     return (
         <>
-            <div className="m-3 d-flex justify-content-end gap-2">
+           
                 <Form.Control
                     type="text"
                     placeholder="Search by year"
