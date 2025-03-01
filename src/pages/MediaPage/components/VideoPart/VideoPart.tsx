@@ -45,7 +45,11 @@ const VideoPart = () => {
       </div>
 
       <Nav.Link
-        className={style.linkToYoutube}>
+        className={style.linkToYoutube}
+        href='https://www.youtube.com/@khachaturyantrio'
+         target="_blank"
+        rel="noopener noreferrer"
+        >
         <span className={style.firstPart}>{ButtonText.YoutubeLinkFirstText}</span>
         <LogosYoutubeIcon className={style.youtubeLogo} />
         <span className={style.secondPart}>{ButtonText.YoutubeLinkSecondText}</span>{arrowUpRight}
