@@ -21,8 +21,6 @@
       width: 352px;
       gap: 12px;
 
-
-
       .react-calendar__month-view__days__day {
         position: relative; // Establish a stacking context for children
         color: $textColor;
@@ -31,8 +29,6 @@
         justify-content: center;
         align-items: center;
         cursor: default;
-
-
         &:hover,
         &:focus,
         &:active {
@@ -40,7 +36,6 @@
           outline: none !important;
           cursor: default;
         }
-
 
         img {
           position: absolute;
@@ -71,14 +66,11 @@
         outline: none !important;
       }
 
-
-
       .react-calendar__navigation__label__labelText {
         font-size: 20px;
         font-weight: 600;
         line-height: 140%;
       }
-
     }
 
     .react-calendar__month-view__weekdays {
@@ -110,7 +102,6 @@
       font: inherit;
       font-size: 0.833em;
 
-
       &--disabled {
         display: none;
       }
@@ -118,8 +109,6 @@
       &.highlighted {
         background-color: #ffcc00;
       }
-
-
     }
 
     abbr[title] {
@@ -139,18 +128,10 @@
     display: flex;
     flex-direction: row-reverse;
 
-
-
-
-
-
-
     .hover-previously {
       width: 344px;
       height: auto;
       transform: translate(0, 20%);
-
-
 
       .previous-concert {
         width: 100%;
@@ -159,9 +140,6 @@
         border-radius: 16px;
         display: flex;
         align-items: center;
-
-
-
       }
 
       .date-container {
@@ -219,10 +197,7 @@
           letter-spacing: 0.02em;
           line-height: 140%;
         }
-
       }
-
-
     }
 
     .hover-upcoming {
@@ -230,7 +205,6 @@
       min-width: 640px;
       height: auto;
       color: #0078d4;
-
 
       .upcoming-concert {
         width: 100%;
@@ -244,7 +218,6 @@
           display: flex;
         }
 
-
         .date-container {
           width: 95px;
           min-width: 95px;
@@ -253,8 +226,6 @@
           margin: 0;
           color: $orange-text-color;
           text-align: center;
-
-
 
           .day {
             font-size: 32px;
@@ -322,10 +293,7 @@
             letter-spacing: 0.02em;
             line-height: 140%;
           }
-
         }
-
-
       }
     }
 
@@ -348,8 +316,6 @@
     justify-content: center;
     align-items: center;
   }
-
-
 }
 
 
@@ -407,15 +373,12 @@
         height: auto;
         color: #0078d4;
 
-
         .upcoming-concert {
           width: 100%;
           padding: 32px 12px;
           background: #171717;
           border-radius: 16px;
           display: block;
-
-
 
           .content-wrapper {
             padding-bottom: 12px;
@@ -429,8 +392,6 @@
             margin: 0;
             color: $orange-text-color;
             text-align: center;
-
-
 
             .day {
               font-size: 32px;
@@ -478,7 +439,6 @@
             padding: 12px 12px 0 12px;
             border-top: 1px solid #323232;
 
-
             p {
               margin: 0;
             }
@@ -499,10 +459,7 @@
               letter-spacing: 0.02em;
               line-height: 140%;
             }
-
           }
-
-
         }
       }
 
@@ -516,21 +473,14 @@
         font-size: 14px;
       }
 
-
-
       .hover-previously {
         width: 320px;
         height: fit-content;
         transform: translate(0%, 35%);
-
-
-
       }
     }
-
   }
 }
-
 
 @media (max-width: 660px) {
   .calendarContainer {
@@ -541,7 +491,6 @@
       z-index: 100;
       display: flex;
       flex-direction: row-reverse;
-
       left: 50%;
       transform: translateX(calc(-50% + 52px)) translateY(-80%);
       right: 16px;
@@ -552,15 +501,12 @@
         height: auto;
         color: #0078d4;
 
-
         .upcoming-concert {
           width: 100%;
           padding: 32px 12px;
           background: #171717;
           border-radius: 16px;
           display: block;
-
-
 
           .content-wrapper {
             padding-bottom: 12px;
@@ -574,8 +520,6 @@
             margin: 0;
             color: $orange-text-color;
             text-align: center;
-
-
 
             .day {
               font-size: 32px;
@@ -606,9 +550,7 @@
             width: 180px;
             min-width: 180px;
             height: 120px;
-            margin: 0 16px;
-
-           
+            margin: 0 16px; 
           }
 
           .info-container {
@@ -639,10 +581,7 @@
               letter-spacing: 0.02em;
               line-height: 140%;
             }
-
           }
-
-
         }
       }
 
@@ -656,18 +595,12 @@
         font-size: 14px;
       }
 
-
-
       .hover-previously {
         width: 320px;
         height: fit-content;
         transform: translate(0%, 35%);
-
-
-
       }
     }
-
   }
 }
 
@@ -678,7 +611,6 @@
     padding: 24px;
 
     .react-calendar {
-
       .react-calendar__month-view__days {
         width: 292px;
         gap: 2px;
@@ -712,7 +644,6 @@
       z-index: 100;
       display: flex;
       flex-direction: row-reverse;
-
       left: 50%;
       transform: translateX(calc(-50% + 52px)) translateY(-74%);
       right: 16px;
@@ -723,15 +654,12 @@
         height: auto;
         color: #0078d4;
 
-
         .upcoming-concert {
           width: 100%;
           padding: 24px 8px;
           background: #171717;
           border-radius: 16px;
           display: block;
-
-
 
           .content-wrapper {
             padding-bottom: 8px;
@@ -747,8 +675,6 @@
             margin: 0;
             color: $orange-text-color;
             text-align: center;
-
-
 
             .day {
               font-size: 24px;
@@ -780,8 +706,6 @@
             min-width: 140px;
             height: 90px;
             margin: 0 16px;
-
-
           }
 
           .info-container {
@@ -790,7 +714,6 @@
             color: $text-white-color ;
             padding: 12px 12px 0 12px;
             border-top: 1px solid #323232;
-
 
             p {
               margin: 0;
@@ -813,10 +736,7 @@
               letter-spacing: 0.02em;
               line-height: 140%;
             }
-
           }
-
-
         }
       }
 
@@ -830,14 +750,10 @@
         font-size: 14px;
       }
 
-
-
       .hover-previously {
         width: 260px;
         height: fit-content;
         transform: translate(0%, 27%);
-
-
 
         .previous-concert {
           width: 100%;
@@ -846,9 +762,6 @@
           border-radius: 16px;
           display: flex;
           align-items: center;
-
-
-
         }
 
         .date-container {
@@ -907,19 +820,11 @@
             letter-spacing: 0.02em;
             line-height: 140%;
           }
-
         }
-
-
-
-
       }
     }
-
   }
 }
-
-
 
 @media (max-width: 440px) {
   .calendarContainer {
@@ -937,7 +842,6 @@
     }
   }
 }
-
 
 @media (max-width: 372px) {
   .calendarContainer {
@@ -981,7 +885,6 @@
         font: inherit;
         font-size: 0.833em;
 
-
         &--disabled {
           display: none;
         }
@@ -989,8 +892,6 @@
         &.highlighted {
           background-color: #ffcc00;
         }
-
-
       }
 
       abbr[title] {
@@ -1020,15 +921,12 @@
         height: auto;
         color: #0078d4;
 
-
         .upcoming-concert {
           width: 100%;
           padding: 24px 8px;
           background: #171717;
           border-radius: 16px;
           display: block;
-
-
 
           .content-wrapper {
             padding-bottom: 8px;
@@ -1044,8 +942,6 @@
             margin: 0;
             color: $orange-text-color;
             text-align: center;
-
-
 
             .day {
               font-size: 20px;
@@ -1077,8 +973,6 @@
             min-width: 120px;
             height:80px;
             margin: 0 16px;
-
-
           }
 
           .info-container {
@@ -1087,7 +981,6 @@
             color: $text-white-color ;
             padding: 12px 12px 0 12px;
             border-top: 1px solid #323232;
-
 
             p {
               margin: 0;
@@ -1110,10 +1003,7 @@
               letter-spacing: 0.02em;
               line-height: 140%;
             }
-
           }
-
-
         }
       }
 
@@ -1127,14 +1017,10 @@
         font-size: 14px;
       }
 
-
-
       .hover-previously {
         width: 200px;
         height: fit-content;
         transform: translate(0%, 27%);
-
-
 
         .previous-concert {
           width: 100%;
@@ -1143,9 +1029,6 @@
           border-radius: 16px;
           display: flex;
           align-items: center;
-
-
-
         }
 
         .date-container {
@@ -1204,14 +1087,8 @@
             letter-spacing: 0.02em;
             line-height: 140%;
           }
-
         }
-
-
-
-
       }
     }
-
   }
 }
