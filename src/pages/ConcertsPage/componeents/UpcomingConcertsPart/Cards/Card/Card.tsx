@@ -2,6 +2,7 @@ import { Button } from "react-bootstrap"
 import style from "./Card.module.scss"
 import { ConcertsDataProps } from "../../../../../../interface/interface"
 import { formatFirestoreDate } from "../../../../../../configs/firebase/firebaseConfigs"
+import { ButtonText } from "../../../../../../shared/enum/enum"
 
 const Card = ({data}: {data: ConcertsDataProps}) => {
 
@@ -26,7 +27,12 @@ const Card = ({data}: {data: ConcertsDataProps}) => {
                 </div>
             </div>
             <div className={style.linkContainer}>
-                <Button className={style.button}>Details</Button>
+                <Button 
+                className={style.button} 
+                onClick={() => {
+                    window.open(data.link, "_blank", "noopener,noreferrer");
+                  }}>{ButtonText.Details}</Button>
+
             </div>
         </div>
     )
