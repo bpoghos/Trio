@@ -27,12 +27,17 @@ const Card = ({data}: {data: ConcertsDataProps}) => {
                 </div>
             </div>
             <div className={style.linkContainer}>
-                <Button 
+            <Button 
                 className={style.button} 
                 onClick={() => {
-                    window.open(data.link, "_blank", "noopener,noreferrer");
-                  }}>{ButtonText.Details}</Button>
-
+                    if (data.link && data.link.length > 0) {
+                        window.open(data.link, "_blank", "noopener,noreferrer");
+                    }
+                  }}
+                disabled={!data.link || data.link.length === 0}
+                >
+                  {ButtonText.Details}
+                </Button>
             </div>
         </div>
     )

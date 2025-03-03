@@ -22,9 +22,17 @@ const CustomCard = ({ concert, borderStyle }: { concert: ConcertsDataProps, bord
         <p className={style.hallName}>{concert.hall_name}</p>
         <div className={style.timeContainer}>
           <span>{concert.time}</span>
-          <button onClick={() => {
-    window.open(concert.link, "_blank", "noopener,noreferrer");
-  }}>{ButtonText.Details}{arrowUpRight}</button>
+          <button 
+                className={style.button} 
+                onClick={() => {
+                    if (concert.link && concert.link.length > 0) {
+                        window.open(concert.link, "_blank", "noopener,noreferrer");
+                    }
+                  }}
+                disabled={!concert.link || concert.link.length === 0}
+                >
+                  {ButtonText.Details}{arrowUpRight}
+                </button>
         </div>
       </Card.Body>
     </Card>
