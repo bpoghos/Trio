@@ -42,16 +42,16 @@ const BiographyPart = () => {
             <div className={style.separateBiographyContainer}>
                 <Container className={style.armineText}>
                     <img alt="ArmineGrigoryan" src={armineImage} />
-                    <p><strong>{BiographyText.ArmineGrigoryan}</strong>{BiographyText.ArmineGrigoryanBiography1}</p>
+                    <p ><strong className={style.name}>{BiographyText.ArmineGrigoryan}</strong>{BiographyText.ArmineGrigoryanBiography1}</p>
                     <p>{BiographyText.ArmineGrigoryanBiography2}</p>
                 </Container>
                 <Container className={style.karenShText}>
                     <img alt="KarenShahgaldyan" src={shKarenImage} />
-                    <p><strong>{BiographyText.KarenShahgaldyan}</strong>{BiographyText.KarenShahgaldyanBiography}</p>
+                    <p><strong className={style.name}>{BiographyText.KarenShahgaldyan}</strong>{BiographyText.KarenShahgaldyanBiography}</p>
                 </Container>
                 <Container className={style.karenQText}>
                     <img alt="KarenQocharyan" src={qKarenImage} />
-                    <p><strong>{BiographyText.KarenQocharyan}</strong>{BiographyText.KarenQocharyanBiography}</p>
+                    <p className={style.name}><strong>{BiographyText.KarenQocharyan}</strong>{BiographyText.KarenQocharyanBiography}</p>
                 </Container>
             </div>
         </Container>
