@@ -22,8 +22,8 @@
 
 .footer {
   position: absolute;
-  min-height: 148px;
-  max-height: 148px;
+  min-height: 172px;
+  max-height: auto;
   bottom: 0; // Stick to the bottom of the image
   left: 50%; // Move to the center horizontally
   transform: translateX(-50%); // Adjust to perfectly center the container
@@ -46,10 +46,6 @@
       justify-content: space-between;
 
       .logoPart {
-        &:hover {
-          cursor: pointer;
-        }
-
         h5 {
           margin: 0;
           font-size: 16px;
@@ -57,6 +53,28 @@
           font-weight: bold;
           line-height: 150%;
           color: $orange-text-color;
+          margin-bottom: 24px;
+          cursor: pointer;
+        }
+
+        .websiteByContainer {
+            display: flex;
+            flex-direction: column;
+          .websiteBy,
+          .skillsUp {
+            color: #ccc;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 140%;
+          }
+
+          .skillsUp{
+            font-weight: 600;
+            cursor: pointer;
+          }
+
+       
         }
       }
 
@@ -105,7 +123,6 @@
         font-weight: 500;
         line-height: 140%;
         letter-spacing: 0.02em;
-
       }
     }
 
@@ -120,16 +137,17 @@
 }
 
 @media (max-width: 1000px) {
+  .footer {
+    position: relative;
+    background: $black-color;
+  }
   .footerContainer {
     max-width: 840px !important;
   }
 }
 
 @media (max-width: 900px) {
-  .footer {
-    position: relative;
-    background: $black-color;
-  }
+ 
 
   .footerContainer {
     max-width: 700px !important;
@@ -151,7 +169,7 @@
     min-height: auto;
     max-height: fit-content;
     height: auto;
-    padding: 0 80px;
+    padding: 0 80px 0 32px;
   }
 
   .footerContainer {
@@ -172,7 +190,6 @@
     min-height: auto;
     max-height: fit-content;
     height: auto;
-    padding: 0 40px;
   }
 
   .footerContainer {

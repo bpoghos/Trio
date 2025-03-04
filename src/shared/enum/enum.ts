@@ -18,6 +18,12 @@ export enum ButtonText {
     YoutubeLinkSecondText = "YouTube channel",
 }
 
+export enum FooterContent {
+    WebsiteBy = "Website designed and developed by",
+    SkillsUp = "SkillsUp Technologies",
+    Copyright = "© 2024 Khachaturian Trio"
+} 
+
 export enum UpcomingConcerts {
     NoData1 = "We have just wrapped up a wonderful tour! While we are taking a short break, we are already busy planning our next performances.",
     NoData2 = "Stay tuned – exciting new concerts will be announced soon!",
