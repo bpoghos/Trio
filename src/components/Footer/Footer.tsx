@@ -32,7 +32,7 @@ const navigate = useNavigate()
           <div className={style.socialPart}>
                 <Nav.Link href="https://www.facebook.com/khachaturiantrio" target="_blank" rel="noopener noreferrer">{facebookIcon}</Nav.Link>
                 <Nav.Link  href='https://www.youtube.com/@khachaturyantrio' target="_blank"rel="noopener noreferrer">{youtubeIcon}</Nav.Link>
-                <Nav.Link href="">{vkIcon}</Nav.Link>
+                <Nav.Link href="https://vk.com/khachaturiantrio" target="_blank"rel="noopener noreferrer">{vkIcon}</Nav.Link>
           </div>
         </div>
         <div className={style.footerMidline}></div>
