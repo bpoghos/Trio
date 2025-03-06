@@ -63,6 +63,9 @@
 
 @media (max-width:991px) {
 
+    .header{
+        background: $white-color;
+    }
     .navToggle{
         color: $textColor;
         border: none;
