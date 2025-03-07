@@ -67,14 +67,13 @@ function App() {
 
 // Root Component with First-Time Loading & Transition
 function Root() {
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    fetchBackendData().then(() => setIsDataLoaded(true));
+    fetchBackendData(); // No need to update isDataLoaded
 
     const timer = setTimeout(() => {
-      setFadeOut(true); // Start fade-out transition
+      setFadeOut(true);
     }, 3000);
 
     return () => clearTimeout(timer);
@@ -90,5 +89,6 @@ function Root() {
     </BrowserRouter>
   );
 }
+
 
 export default Root;
