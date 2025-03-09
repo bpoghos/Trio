@@ -7,19 +7,21 @@ import { arrowDownIcon } from '../../../../../shared/svg/svgFiles';
 import { ButtonText, UpcomingConcerts } from '../../../../../shared/enum/enum';
 import { Timestamp } from 'firebase/firestore';
 import { useConcerts } from '../../../../../customHooks/customHooks';
+import SkeletonLoader from './SkeletonLoader/SkeletonLoader';
+
+
 
 const Cards = () => {
     const now = new Date();
     now.setHours(0, 0, 0, 0); // Normalize to 00:00:00
 
-
-    const {data, getDataFromFirestore} = useConcerts()
+    const { data, getDataFromFirestore } = useConcerts();
     const [visibleCount, setVisibleCount] = useState(8); // Initially show only 8 concerts
-
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        getDataFromFirestore()
-    },[])
+        getDataFromFirestore().then(() => setIsLoading(false));
+    }, []);
 
     // Filter and sort concerts from now onwards
     const sortedConcerts = data
@@ -54,7 +56,9 @@ const Cards = () => {
 
     return (
         <Container className={style.cardsContainer}>
-            {sortedConcerts.length === 0 ? ( 
+            {isLoading ? (
+                <SkeletonLoader />
+            ) : sortedConcerts.length === 0 ? (
                 // If there are no concerts, show a message
                 <div className={style.noDataTextContainer}>
                     <p className={style.text1}>{UpcomingConcerts.NoData1}</p>
@@ -75,7 +79,7 @@ const Cards = () => {
                     </div>
                 ))
             )}
-    
+
             {/* Show "View More" button only if there are more concerts to display */}
             {visibleCount < sortedConcerts.length && sortedConcerts.length > 0 && (
                 <div className={style.buttonContainer}>

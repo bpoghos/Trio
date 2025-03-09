@@ -1,31 +1,26 @@
 @import "../../../../../styles/variables/colors.module";
 @import "../../../../../styles/variables/fontFamily.module";
 
-
-
 .cardsContainer {
-
     h5 {
         margin-top: 40px;
         margin-bottom: 16px;
         color: $blue-color;
     }
 
-    .noDataTextContainer{
+    .noDataTextContainer {
         margin-top: 40px;
 
-        p{
+        p {
             max-width: 70%;
             margin-bottom: 28px;
             line-height: 140%;
             letter-spacing: 0.02em;
         }
-        .text3{
+        .text3 {
             margin: 0;
         }
     }
-
-   
 
     .buttonContainer {
         width: 100%;
@@ -46,37 +41,38 @@
         }
     }
 
-
 }
 
-
 @media (max-width: 1100px) {
-    .cardsContainer{
-        h5{
+    .skeletonContainer{
+        padding: 0 100px;
+    }
+    .cardsContainer {
+        h5 {
             margin-left: 100px;
         }
 
-        .noDataTextContainer{
+        .noDataTextContainer {
             margin-left: 100px;
         }
     }
 }
 
 @media (max-width: 890px) {
-    .cardsContainer{
-        h5{
+    .cardsContainer {
+        h5 {
             margin-left: 32px;
         }
 
-        .noDataTextContainer{
+        .noDataTextContainer {
             margin-left: 32px;
         }
     }
 }
 
 @media (max-width: 768px) {
-    .cardsContainer{
-        h5{
+    .cardsContainer {
+        h5 {
             margin-left: 32px;
             font-size: 16px;
         }
@@ -84,14 +80,14 @@
 }
 
 @media (max-width: 480px) {
-    .cardsContainer{
-        h5{
+    .cardsContainer {
+        h5 {
             margin-left: 16px;
         }
 
-        .noDataTextContainer{
+        .noDataTextContainer {
             margin: 40px 16px 0 16px;
-            p{
+            p {
                 max-width: 100%;
             }
         }
