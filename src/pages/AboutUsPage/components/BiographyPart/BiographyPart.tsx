@@ -9,40 +9,31 @@ import photo3 from "../../../../assets/about/photo3.png";
 import armineImage from "../../.././../assets/trioPhotos/armine.webp";
 import shKarenImage from "../../.././../assets/trioPhotos/shkaren.webp";
 import qKarenImage from "../../.././../assets/trioPhotos/qkaren.webp";
+import BiographyPartSkeletonLoader from "./BiographyPartSkeletonLoader.";
 
 const BiographyPart = () => {
     // Track image loading state
-    const [imageLoadedState, setImageLoadedState] = useState({
-        photo1: false,
-        photo2: false,
-        photo3: false,
-        armineImage: false,
-        shKarenImage: false,
-        qKarenImage: false,
-    });
+    const [imageLoadedState, setImageLoadedState] = useState(true);
 
-    // Handle image load
-    const handleImageLoad = (imageId: string) => {
-        setImageLoadedState((prevState) => ({
-            ...prevState,
-            [imageId]: true,
-        }));
-    };
+    // Handle image load event
+    setTimeout(() => {
+        setImageLoadedState(false);
+    }
+    , 1000);
 
     return (
         <Container className={style.biographyPartContainer}>
-            <div className={style.trioBiographyContainer}>
+            {imageLoadedState ? (<BiographyPartSkeletonLoader />) : (
+                <>
+                <div className={style.trioBiographyContainer}>
                 <div className={`${style.text1} ${style.trioText}`}>
                     <div className={style.imageContainer}>
                         <img
                             alt="PhotoTrioBiography"
                             src={photo1}
                             loading="lazy"
-                            onLoad={() => handleImageLoad("photo1")}
-                            onError={() => handleImageLoad("photo1")}
-                            className={imageLoadedState.photo1 ? style.visible : style.hidden}
+                            className={photo1}
                         />
-                        {!imageLoadedState.photo1 && <div className={style.skeletonLoader}></div>}
                     </div>
                     <p>{BiographyText.TrioPart1}</p>
                 </div>
@@ -53,11 +44,8 @@ const BiographyPart = () => {
                             alt="PhotoTrioBiography"
                             src={photo2}
                             loading="lazy"
-                            onLoad={() => handleImageLoad("photo2")}
-                            onError={() => handleImageLoad("photo2")}
-                            className={imageLoadedState.photo2 ? style.visible : style.hidden}
+                            className={photo2}
                         />
-                        {!imageLoadedState.photo2 && <div className={style.skeletonLoader}></div>}
                     </div>
                 </div>
                 <div className={`${style.text3} ${style.trioText}`}>
@@ -66,11 +54,8 @@ const BiographyPart = () => {
                             alt="PhotoTrioBiography"
                             src={photo3}
                             loading="lazy"
-                            onLoad={() => handleImageLoad("photo3")}
-                            onError={() => handleImageLoad("photo3")}
-                            className={imageLoadedState.photo3 ? style.visible : style.hidden}
+                            className={photo3}
                         />
-                        {!imageLoadedState.photo3 && <div className={style.skeletonLoader}></div>}
                     </div>
                     <p>{BiographyText.TrioPart3}</p>
                 </div>
@@ -85,11 +70,8 @@ const BiographyPart = () => {
                     <img
                         alt="ArmineGrigoryan"
                         src={armineImage}
-                        onLoad={() => handleImageLoad("armineImage")}
-                        onError={() => handleImageLoad("armineImage")}
-                        className={imageLoadedState.armineImage ? style.visible : style.hidden}
+                        className={style.armineImage}
                     />
-                    {!imageLoadedState.armineImage && <div className={style.skeletonLoader}></div>}
                     <p>
                         <strong className={style.name}>{BiographyText.ArmineGrigoryan}</strong>
                         {BiographyText.ArmineGrigoryanBiography1}
@@ -100,11 +82,8 @@ const BiographyPart = () => {
                     <img
                         alt="KarenShahgaldyan"
                         src={shKarenImage}
-                        onLoad={() => handleImageLoad("shKarenImage")}
-                        onError={() => handleImageLoad("shKarenImage")}
-                        className={imageLoadedState.shKarenImage ? style.visible : style.hidden}
+                        className={style.shKarenImage}
                     />
-                    {!imageLoadedState.shKarenImage && <div className={style.skeletonLoader}></div>}
                     <p>
                         <strong className={style.name}>{BiographyText.KarenShahgaldyan}</strong>
                         {BiographyText.KarenShahgaldyanBiography}
@@ -114,17 +93,17 @@ const BiographyPart = () => {
                     <img
                         alt="KarenQocharyan"
                         src={qKarenImage}
-                        onLoad={() => handleImageLoad("qKarenImage")}
-                        onError={() => handleImageLoad("qKarenImage")}
-                        className={imageLoadedState.qKarenImage ? style.visible : style.hidden}
+                        className={style.qKarenImage}
                     />
-                    {!imageLoadedState.qKarenImage && <div className={style.skeletonLoader}></div>}
                     <p className={style.name}>
                         <strong>{BiographyText.KarenQocharyan}</strong>
                         {BiographyText.KarenQocharyanBiography}
                     </p>
                 </Container>
             </div>
+            </>
+            )}
+            
         </Container>
     );
 };

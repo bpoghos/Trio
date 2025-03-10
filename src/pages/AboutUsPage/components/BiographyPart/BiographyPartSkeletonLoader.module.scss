@@ -1,0 +1,66 @@
+.skeletonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+
+    .trioBiographyContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .skeletonTextContainer {
+        display: flex;
+        align-items: start;
+        gap: 26px;
+    }
+
+    .skeletonImage {
+        width: 100%;
+        height: clamp(220px, 50vw, 600px);
+        max-width: 330px;
+        max-height: 220px;
+        border-radius: 4px;
+        background-color: #ccc;
+    }
+
+
+    .skeletonText {
+        width: 100%;
+        height: clamp(220px, 50vw, 1200px);
+        max-height: 220px;
+        background-color: #ccc;
+        border-radius: 4px;
+    }
+
+    .skeletonTextContainer:nth-child(3) .skeletonText {
+        min-height: 360px;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .trioBiographyContainer {
+        gap: 16px !important;
+    }
+
+    .skeletonTextContainer {
+        display: flex !important;
+        flex-direction: column;
+        gap: 16px !important;
+    }
+
+    .skeletonImage {
+        min-width: 100%;
+        min-height: clamp(207px, 50vw, 600px);
+    }
+
+    .skeletonText {
+        min-height: clamp(400px, 50vw, 220px);
+    }
+
+    .skeletonTextContainer:nth-child(2) .skeletonText {
+        order: 2;
+    }
+}
