@@ -22,6 +22,14 @@ const MapFunctional: React.FC = () => {
     const [isMapActive, setIsMapActive] = useState<boolean>(false);
     const [hoverInfo, setHoverInfo] = useState<{ country: string; city: string; x: number; y: number } | null>(null);
     const [isChecked, setIsChecked] = useState(false); // State for checkbox
+    const [touchStartDistance, setTouchStartDistance] = useState<number | null>(null);
+const [touchStartZoom, setTouchStartZoom] = useState<number>(zoomLevel);
+const [isTouchZooming, setIsTouchZooming] = useState(false); 
+const [touchStartX, setTouchStartX] = useState<number>(0);
+const [touchStartY, setTouchStartY] = useState<number>(0);
+const [startViewBox, setStartViewBox] = useState<{ x: number; y: number; width: number; height: number }>(viewBox);
+const [isPanning, setIsPanning] = useState(false);
+
 
 
 
@@ -56,9 +64,128 @@ const MapFunctional: React.FC = () => {
 
     const mapRef = useRef<Svg | null>(null);
 
+    useEffect(() => {
+        const preventGlobalZoom = (event: TouchEvent) => {
+            // Prevent pinch-zoom globally
+            if (event.touches.length > 1) {
+                event.preventDefault(); // Prevent pinch-to-zoom behavior on the whole page
+            }
+        };
+    
+        // Add event listener to block pinch-to-zoom globally
+        window.addEventListener("touchstart", preventGlobalZoom, { passive: false });
+        window.addEventListener("touchmove", preventGlobalZoom, { passive: false });
+    
+        return () => {
+            window.removeEventListener("touchstart", preventGlobalZoom);
+            window.removeEventListener("touchmove", preventGlobalZoom);
+        };
+    }, []);
 
+    
 
+    const handleTouchStart = (event: TouchEvent) => {
+        if (event.touches.length === 1) {
+            setIsPanning(true); // Start panning
+        }
+    
+        if (event.touches.length === 2) {
+            setIsTouchZooming(true); // Start zooming
+        }
+        if (event.touches.length === 1) {
+            // Track initial touch position
+            const touch = event.touches[0];
+            const boundingRect = mapContainerRef.current!.getBoundingClientRect();
+    
+            // Store the initial touch position and current viewBox
+            setTouchStartX(touch.clientX - boundingRect.left);
+            setTouchStartY(touch.clientY - boundingRect.top);
+            setStartViewBox(viewBox); // Store the current viewBox at the start of the touch
+        }
+    
+        if (event.touches.length === 2) {
+            const touch1 = event.touches[0];
+            const touch2 = event.touches[1];
+            const distance = Math.sqrt(
+                Math.pow(touch2.clientX - touch1.clientX, 2) + Math.pow(touch2.clientY - touch1.clientY, 2)
+            );
+            setTouchStartDistance(distance);
+            setTouchStartZoom(zoomLevel);
+            setIsTouchZooming(true);
+        }
+    };
+    
+    const handleTouchMove = (event: TouchEvent) => {
 
+        if (isTouchZooming || isPanning) {
+            event.preventDefault(); // Prevent scroll only when interacting with the map
+        }
+        if (event.touches.length === 2 && touchStartDistance !== null && isTouchZooming) {
+            // Zooming logic (same as before)
+            const touch1 = event.touches[0];
+            const touch2 = event.touches[1];
+            const currentDistance = Math.sqrt(
+                Math.pow(touch2.clientX - touch1.clientX, 2) + Math.pow(touch2.clientY - touch1.clientY, 2)
+            );
+            const zoomFactor = currentDistance / touchStartDistance;
+    
+            const newZoomLevel = Math.min(Math.max(touchStartZoom * zoomFactor, 1), 10);
+            const boundingRect = mapContainerRef.current!.getBoundingClientRect();
+            const mouseX = (touch1.clientX + touch2.clientX) / 2 - boundingRect.left;
+            const mouseY = (touch1.clientY + touch2.clientY) / 2 - boundingRect.top;
+    
+            const relativeX = (mouseX / boundingRect.width) * viewBox.width + viewBox.x;
+            const relativeY = (mouseY / boundingRect.height) * viewBox.height + viewBox.y;
+    
+            const newWidth = viewBox.width / (newZoomLevel / zoomLevel);
+            const newHeight = viewBox.height / (newZoomLevel / zoomLevel);
+    
+            const newX = relativeX - (mouseX / boundingRect.width) * newWidth;
+            const newY = relativeY - (mouseY / boundingRect.height) * newHeight;
+    
+            setViewBox({ x: newX, y: newY, width: newWidth, height: newHeight });
+            setZoomLevel(newZoomLevel);
+        } else if (event.touches.length === 1 && !isTouchZooming) {
+            // Panning logic (one finger)
+            const touch = event.touches[0];
+            const boundingRect = mapContainerRef.current!.getBoundingClientRect();
+    
+            // Calculate how much the user moved their finger
+            const deltaX = (touch.clientX - boundingRect.left) - touchStartX;
+            const deltaY = (touch.clientY - boundingRect.top) - touchStartY;
+    
+            // Calculate the new viewBox by adding the movement deltas to the initial viewBox
+            setViewBox({
+                x: startViewBox.x - deltaX * (viewBox.width / boundingRect.width),
+                y: startViewBox.y - deltaY * (viewBox.height / boundingRect.height),
+                width: viewBox.width,
+                height: viewBox.height,
+            });
+        }
+    };
+    
+    const handleTouchEnd = () => {
+        setIsTouchZooming(false);
+        setTouchStartDistance(null);
+        setTouchStartZoom(zoomLevel);
+        setIsPanning(false);
+    };
+    
+    useEffect(() => {
+        const container = mapContainerRef.current;
+        if (container) {
+            container.addEventListener("touchstart", handleTouchStart, { passive: false });
+            container.addEventListener("touchmove", handleTouchMove, { passive: false });
+            container.addEventListener("touchend", handleTouchEnd);
+
+            return () => {
+                container.removeEventListener("touchstart", handleTouchStart);
+                container.removeEventListener("touchmove", handleTouchMove);
+                container.removeEventListener("touchend", handleTouchEnd);
+            };
+        }
+    }, [zoomLevel, viewBox, isTouchZooming]);
+ 
     // Fetch the SVG content
     useEffect(() => {
         fetch(earth)
@@ -111,7 +238,7 @@ const MapFunctional: React.FC = () => {
                 );
             }
         }
-    }, [svgContent, isChecked]); // Removed `viewBox` dependency to prevent unwanted resets
+    }, [svgContent, isChecked]); // Removed viewBox dependency to prevent unwanted resets
     
 
 
